@@ -20,15 +20,14 @@ package pkg
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/devtron-labs/silver-surfer/pkg/log"
+	"sort"
+	"strings"
+
+	"github.com/JinoArch/silver-surfer/pkg/log"
 	"github.com/getkin/kin-openapi/openapi3"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"sigs.k8s.io/yaml"
-	"sort"
-	"strings"
 )
-
-
 
 type kubeSpec struct {
 	*openapi3.T
@@ -282,7 +281,7 @@ func (ks *kubeSpec) getKeyForGVFromToken(token string) (string, error) {
 }
 
 func (ks *kubeSpec) schemaLookup(token string) (*openapi3.Schema, error) {
-	for ; ; {
+	for {
 		if strings.Index(token, "/") > 0 {
 			parts := strings.Split(token, "/")
 			token = parts[len(parts)-1]

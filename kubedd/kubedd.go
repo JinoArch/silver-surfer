@@ -20,9 +20,10 @@ package kubedd
 import (
 	"bytes"
 	"fmt"
-	"github.com/devtron-labs/silver-surfer/pkg"
-	kLog "github.com/devtron-labs/silver-surfer/pkg/log"
 	"os"
+
+	"github.com/JinoArch/silver-surfer/pkg"
+	kLog "github.com/JinoArch/silver-surfer/pkg/log"
 )
 
 var yamlSeparator = []byte("\n---\n")
@@ -94,7 +95,7 @@ func ValidateCluster(cluster *pkg.Cluster, conf *pkg.Config) ([]pkg.ValidationRe
 	}
 	serverVersion, err := cluster.ServerVersion()
 	if err != nil {
-		kLog.Error( err)
+		kLog.Error(err)
 		serverVersion = conf.TargetKubernetesVersion
 	}
 	resources, err := kubeC.GetKinds(serverVersion)
@@ -132,7 +133,6 @@ func ValidateCluster(cluster *pkg.Cluster, conf *pkg.Config) ([]pkg.ValidationRe
 		validationResults = append(validationResults, validationResult)
 	}
 
-
 	return validationResults, nil
 }
 
@@ -168,4 +168,3 @@ func ValidateCluster(cluster *pkg.Cluster, conf *pkg.Config) ([]pkg.ValidationRe
 //		return result
 //	}
 //}
-

@@ -1,9 +1,10 @@
 package kubedd
 
 import (
-	"github.com/devtron-labs/silver-surfer/pkg"
 	"reflect"
 	"testing"
+
+	"github.com/JinoArch/silver-surfer/pkg"
 )
 
 func TestValidateCluster(t *testing.T) {
