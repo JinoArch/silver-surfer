@@ -1,4 +1,4 @@
-module github.com/devtron-labs/silver-surfer
+module github.com/JinoArch/silver-surfer
 
 go 1.15
 
